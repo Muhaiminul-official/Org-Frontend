@@ -113,7 +113,7 @@ export default function RequestBlood() {
         // Prevent duplicates
         if (prev.some(req => req._id === newReq._id)) return prev;
         
-        toast('A new blood request was posted!', { icon: '🩸' });
+        // toast('A new blood request was posted!', { icon: '🩸' });
         return [newReq, ...prev];
       });
     });
