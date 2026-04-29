@@ -151,10 +151,11 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative order-1 lg:order-2 px-4 sm:px-10 lg:px-0"
           >
-            <div className="relative z-10 p-2 md:p-3 bg-white dark:bg-[#111] rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-white/10 mx-auto max-w-sm md:max-w-md lg:max-w-none">
+            <div className="hidden md:block relative z-10 p-2 md:p-3 bg-white dark:bg-[#111] rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-white/10 mx-auto max-w-sm md:max-w-md lg:max-w-none">
               <div className="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden aspect-[4/5] lg:aspect-square">
+                
                 <img
-                  src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&q=80"
+                  src="https://images.unsplash.com/photo-1683791895200-201c0c40310f?q=80&w=1170&auto=format&fit=crop&q=80"
                   alt="Blood Donation"
                   className="w-full h-full object-cover"
                 />

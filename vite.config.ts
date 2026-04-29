@@ -6,6 +6,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
+  const apiUrl = env.VITE_API_URL;
 
   return {
     plugins: [
@@ -16,7 +17,7 @@ export default defineConfig(({ mode }) => {
         registerType: 'prompt',
         devOptions: {
           enabled: true,
-          type: 'module'
+          type: 'module',
         },
         manifest: {
           name: 'BloodLink',
@@ -31,14 +32,14 @@ export default defineConfig(({ mode }) => {
               src: '/icon.svg',
               sizes: '192x192 512x512',
               type: 'image/svg+xml',
-              purpose: 'any maskable'
-            }
+              purpose: 'any maskable',
+            },
           ],
         },
         workbox: {
           importScripts: ['firebase-messaging-sw.js'],
-          navigateFallbackDenylist: [/^\/api/]
-        }
+          navigateFallbackDenylist: [/^\/api/],
+        },
       }),
     ],
 
@@ -56,14 +57,14 @@ export default defineConfig(({ mode }) => {
       port: 5173,
       proxy: {
         '/api': {
-          target: 'http://localhost:3000',
+          target: apiUrl,
           changeOrigin: true,
         },
         '/socket.io': {
-          target: 'http://localhost:3000',
+          target: apiUrl,
           ws: true,
-        }
-      }
+        },
+      },
     },
   };
 });
