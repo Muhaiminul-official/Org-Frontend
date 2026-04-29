@@ -230,7 +230,7 @@ export default function RequestBlood() {
         return;
       }
 
-      const response = await fetch('/api/requests', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/requests`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
