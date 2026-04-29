@@ -28,7 +28,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
       try {
         const [usersRes, requestsRes] = await Promise.all([
           fetch(`${import.meta.env.VITE_API_URL || ''}/api/users`, { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } }),
-          fetch('/api/requests', { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } })
+          fetch(`${import.meta.env.VITE_API_URL || ''}/api/requests`, { headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` } })
         ]);
         
         if (usersRes.ok) {
