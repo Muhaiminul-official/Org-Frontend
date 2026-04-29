@@ -16,11 +16,6 @@ export default function RecentRequests() {
     const fetchRequests = async () => {
       try {
 
-// const response = await fetch(
-//          || 'https://bloodlink-backend-pcro.onrender.com'}/api/auth/google`
-
-
-
 
         const response = await fetch(
           `${import.meta.env.VITE_API_URL}/api/requests`,
