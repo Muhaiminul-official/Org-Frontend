@@ -22,7 +22,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
 
   const handleGoogleSuccess = async (credentialResponse: any) => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/auth/google`, {
+      const response = await fetch(`https://bloodlink-backend-pcro.onrender.com/api/auth/google`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
     data.upazila = selectedUpazila;
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/auth/register`, {
+      const response = await fetch(`https://bloodlink-backend-pcro.onrender.com/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
