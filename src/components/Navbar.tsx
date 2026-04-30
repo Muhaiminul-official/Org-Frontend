@@ -341,13 +341,13 @@ export default function Navbar({ isLoggedIn, onLogout }: NavbarProps) {
               </button>
             </div>
             <div className="space-y-2">
-              <button onClick={() => handleNavClick('about')} className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-base font-medium ${currentPage === 'about' ? 'text-red-500 bg-red-50 dark:bg-red-500/10' : 'text-gray-700 dark:text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-black/5 dark:hover:bg-white/5'}`}>
+              <button onClick={() => handleNavClick('about')} className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-base font-medium ${currentPage === 'about' ? 'text-red-500 bg-red-50 dark:bg-red-500/10' : 'text-gray-700 dark:text-gray-300 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-black/5 dark:hover:bg-white/5'}`}>
                 <Info className="w-5 h-5" /> About Us
               </button>
-              <button onClick={() => handleNavClick('team')} className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-base font-medium ${currentPage === 'team' ? 'text-red-500 bg-red-50 dark:bg-red-500/10' : 'text-gray-700 dark:text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-black/5 dark:hover:bg-white/5'}`}>
+              <button onClick={() => handleNavClick('team')} className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-base font-medium ${currentPage === 'team' ? 'text-red-500 bg-red-50 dark:bg-red-500/10' : 'text-gray-700 dark:text-gray-300 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-black/5 dark:hover:bg-white/5'}`}>
                 <Users className="w-5 h-5" /> Our Team
               </button>
-              <button onClick={() => handleNavClick('contact')} className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-base font-medium ${currentPage === 'contact' ? 'text-red-500 bg-red-50 dark:bg-red-500/10' : 'text-gray-700 dark:text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-black/5 dark:hover:bg-white/5'}`}>
+              <button onClick={() => handleNavClick('contact')} className={`flex items-center gap-3 w-full text-left px-4 py-3 rounded-xl text-base font-medium ${currentPage === 'contact' ? 'text-red-500 bg-red-50 dark:bg-red-500/10' : 'text-gray-700 dark:text-gray-300 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-black/5 dark:hover:bg-white/5'}`}>
                 <Phone className="w-5 h-5" /> Contact
               </button>
               

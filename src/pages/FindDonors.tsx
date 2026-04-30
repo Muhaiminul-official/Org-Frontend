@@ -104,33 +104,33 @@ export default function FindDonors() {
   }, [donors, bloodGroup, division, district, upazila]);
 
   return (
-    <div className="pt-32 pb-20 min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#0a0a0a] dark:to-[#050505]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="pt-24 pb-10 min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#0a0a0a] dark:to-[#050505]">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* HEADER */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-sm font-medium mb-6 backdrop-blur">
             <Search className="w-4 h-4" />
             Find Blood Donors
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+          <h1 className="text-4xl md:text-3xl font-bold text-gray-900 dark:text-white  leading-tight">
             Search for <span className="text-red-500">Donors</span>
           </h1>
 
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400  max-w-2xl mx-auto">
             Easily find verified blood donors based on group and location.
           </p>
         </div>
 
         {/* BLOOD GROUP FILTER */}
-        <div className="flex flex-wrap justify-center gap-3 mb-14">
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
           {bloodGroups.map(bg => (
             <button
               key={bg}
               onClick={() =>
                 setBloodGroup(bloodGroup === bg ? 'All Groups' : bg)
               }
-              className={`group flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 shadow-sm ${
+              className={`group flex items-center gap-2 p-2 rounded-lg border transition-all duration-300 shadow-sm ${
                 bloodGroup === bg
                   ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/20 scale-105'
                   : 'bg-white/70 dark:bg-[#111111]/70 backdrop-blur border-gray-300 dark:border-white/10 hover:border-red-500/40 hover:bg-red-500/5 hover:scale-105'
@@ -149,15 +149,15 @@ export default function FindDonors() {
         </div>
 
         {/* FILTER CARD */}
-        <div className="bg-white/70 dark:bg-[#111111]/70 backdrop-blur-xl border border-gray-200 dark:border-white/5 rounded-3xl p-6 md:p-10 mb-12 shadow-xl">
-          <div className="flex items-center gap-2 mb-8">
+        <div className="bg-white/70 dark:bg-[#111111]/70 backdrop-blur-xl border border-gray-200 dark:border-white/5 rounded-xl p-3 md:p-6 mb-4 shadow-xl">
+          <div className="flex items-center gap-2 mb-3">
             <Filter className="w-5 h-5 text-red-500" />
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
               Advanced Filters
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 items-end">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 items-end">
             {/* Blood */}
             <div>
               <label className="text-sm text-gray-500 dark:text-gray-400 mb-2 block">
@@ -242,7 +242,7 @@ export default function FindDonors() {
                 value={upazila}
                 onChange={e => setUpazila(e.target.value)}
                 disabled={district === 'All Districts'}
-                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition disabled:opacity-50"
+                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 mb-2 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition disabled:opacity-50"
               >
                 <option value="All Upazilas">All Upazilas</option>
                 {apiUpazilas.map(upz => (
@@ -263,13 +263,13 @@ export default function FindDonors() {
               }}
               className="w-full h-[48px] rounded-xl bg-red-500 text-white font-medium hover:bg-red-600 transition shadow-lg shadow-red-500/20"
             >
-              Clear
+              Clear Filters
             </button>
           </div>
         </div>
 
         {/* RESULT COUNT */}
-        <div className="mb-8 text-center">
+        <div className="mb-4 text-center">
           <p className="text-gray-600 dark:text-gray-400 text-lg">
             Found{' '}
             <span className="text-red-500 font-bold">

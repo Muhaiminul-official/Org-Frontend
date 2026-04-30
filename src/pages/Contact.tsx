@@ -33,7 +33,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Phone</p>
-                <p className="text-gray-900 dark:text-white font-medium">+880 1711-000000</p>
+                <p className="text-gray-900 dark:text-white font-medium">+880 1883043793</p>
               </div>
             </div>
             
@@ -43,7 +43,7 @@ export default function Contact() {
               </div>
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Address</p>
-                <p className="text-gray-900 dark:text-white font-medium">University Campus, Dhaka, Bangladesh</p>
+                <p className="text-gray-900 dark:text-white font-medium">Khagan, Ashulia, Savar, Dhaka, Bangladesh</p>
               </div>
             </div>
             

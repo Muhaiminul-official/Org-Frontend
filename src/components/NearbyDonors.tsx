@@ -144,7 +144,7 @@ export default function NearbyDonors() {
   }, [allDonors]);
 
   return (
-    <section className="py-24 bg-[#fcfcfc] dark:bg-[#080808] relative overflow-hidden">
+    <section className="py-15 bg-[#fff3f3] dark:bg-[#181313] relative overflow-hidden">
       {/* Decorative background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
         <div className="absolute top-[-10%] left-[10%] w-72 h-72 bg-red-500/5 rounded-full blur-[100px]" />

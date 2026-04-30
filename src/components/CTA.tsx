@@ -6,17 +6,17 @@ export default function CTA() {
   return (
     <section className="py-20 bg-gray-50 dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-white/5">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-b from-[#161616] to-[#111111] border border-red-500/20 rounded-3xl p-10 md:p-16 text-center relative overflow-hidden">
+        <div className="bg-gradient-to-b from-[#161616] to-[#111111] border border-red-500/20 rounded-2xl p-10 md:p-16 text-center relative overflow-hidden">
           {/* Glow effect */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-500/10 blur-[100px] rounded-full pointer-events-none" />
           
           <div className="relative z-10">
-            <div className="w-16 h-16 mx-auto bg-red-500/10 rounded-2xl flex items-center justify-center mb-6">
+            <div className="w-16 h-16 mx-auto bg-red-500/10 rounded-xl flex items-center justify-center mb-6">
               <Droplet className="w-8 h-8 text-red-500" />
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Ready to Make a Difference?</h2>
-            <p className="text-gray-600 dark:text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-300 dark:text-white mb-4">Ready to Make a Difference?</h2>
+            <p className="text-gray-300 dark:text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
               Register today and become part of our growing community of life-savers.
             </p>
             

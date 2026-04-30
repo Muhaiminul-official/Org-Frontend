@@ -41,7 +41,7 @@ export default function Team() {
       email: 'admin@bloodlink.com',
       phone: '01245775244',
       icon: Crown,
-      image: '/Muhaiminul.png', // ✅ image from public folder
+      image: '/Muhaiminul.png', 
     },
     {
       name: 'Rashedur Rahman',
@@ -51,6 +51,7 @@ export default function Team() {
       email: 'rashedur@bloodlink.edu',
       phone: '01245775142',
       icon: Shield,
+      image: '/Rashedur.png',
     },
     {
       name: 'Sarowar Hossain',
@@ -60,6 +61,7 @@ export default function Team() {
       email: 'sarowar@bloodlink.com',
       phone: '01243571252',
       icon: Shield,
+      image: '/Sarowar.png',
     },
     {
       name: 'Nizam Uddin',
@@ -69,6 +71,7 @@ export default function Team() {
       email: 'nizam@bloodlink.com',
       phone: '01245676841',
       icon: Shield,
+      image: '/Nizam.jpg',
     },
   ];
 
