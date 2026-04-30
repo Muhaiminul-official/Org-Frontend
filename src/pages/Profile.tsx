@@ -664,7 +664,7 @@ export default function Profile({ onLogout }: { onLogout?: () => void }) {
                     <button 
                       onClick={async () => {
                         try {
-                          const response = await fetch('/api/notifications/test-push', {
+                          const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/notifications/test-push`, {
                             method: 'POST',
                             headers: {
                               'Authorization': `Bearer ${localStorage.getItem('token')}`
