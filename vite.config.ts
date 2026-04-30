@@ -6,7 +6,8 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
-  const apiUrl = env.VITE_API_URL;
+  const apiUrl =
+    env.VITE_API_URL || 'https://bloodlink-backend-pcro.onrender.com';
 
   return {
     plugins: [
@@ -43,9 +44,6 @@ export default defineConfig(({ mode }) => {
       }),
     ],
 
-    define: {
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-    },
 
     resolve: {
       alias: {
