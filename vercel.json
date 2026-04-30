@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://bloodlink-backend-pcro.onrender.com/api/$1"
+    }
+  ]
+}
