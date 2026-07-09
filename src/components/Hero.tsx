@@ -24,7 +24,7 @@ const stats = [
     value: 850,
     suffix: '+',
     label: 'Lives Saved',
-    color: 'text-red-500',
+    color: 'text-[#B91C3C]',
   },
   {
     icon: Clock,
@@ -71,7 +71,7 @@ export default function Hero() {
     <div className="relative min-h-[100vh] flex items-center bg-[#fafafa] dark:bg-[#080808] overflow-hidden pt-20 pb-12 lg:py-0">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-5%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-red-500/[0.05] rounded-full blur-[80px] md:blur-[120px]" />
+        <div className="absolute top-[-5%] right-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#B91C3C]/[0.05] rounded-full blur-[80px] md:blur-[120px]" />
         <div className="absolute bottom-[5%] left-[-10%] w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-orange-500/[0.05] rounded-full blur-[80px] md:blur-[100px]" />
       </div>
 
@@ -87,7 +87,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 shadow-sm mb-6">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#B91C3C]"></span>
               </span>
               <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider text-gray-500">
                 University Blood Network
@@ -109,7 +109,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
               <button
                 onClick={() => navigate('/register')}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-red-600 text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#B91C3C] text-white px-8 py-4 rounded-2xl font-bold shadow-lg hover:bg-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 <Heart className="w-5 h-5 fill-current" />
                 Start Donating
@@ -153,7 +153,6 @@ export default function Hero() {
           >
             <div className="hidden md:block relative z-10 p-2 md:p-3 bg-white dark:bg-[#111] rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-white/10 mx-auto max-w-sm md:max-w-md lg:max-w-none">
               <div className="rounded-[1.5rem] md:rounded-[2rem] overflow-hidden aspect-[4/5] lg:aspect-square">
-                
                 <img
                   src="https://images.unsplash.com/photo-1683791895200-201c0c40310f?q=80&w=1170&auto=format&fit=crop&q=80"
                   alt="Blood Donation"
@@ -168,7 +167,7 @@ export default function Hero() {
               transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
               className="hidden sm:flex absolute -top-4 -right-2 lg:-right-6 z-20 bg-white dark:bg-[#1a1a1a] p-3 md:p-4 rounded-xl md:rounded-2xl shadow-xl border border-gray-100 dark:border-white/10 items-center gap-3 md:gap-4"
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-100 dark:bg-red-500/20 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-red-100 dark:bg-[#B91C3C]/20 flex items-center justify-center shrink-0">
                 <Activity className="w-5 h-5 md:w-6 md:h-6 text-red-600" />
               </div>
               <div className="pr-2">

@@ -19,7 +19,7 @@ export default function DonationGuide() {
           key={i}
           className="flex items-center gap-4 text-gray-700 dark:text-gray-300"
         >
-          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-red-500/20 text-red-500 text-xs font-bold">
+          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#B91C3C]/20 text-[#B91C3C] text-xs font-bold">
             {i + 1}
           </span>
           {item}
@@ -48,7 +48,7 @@ export default function DonationGuide() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-6 py-4 text-sm font-medium whitespace-nowrap transition-colors ${
                   activeTab === tab.id
-                    ? 'text-red-500 border-b-2 border-red-500 bg-red-500/5'
+                    ? 'text-[#B91C3C] border-b-2 border-[#B91C3C] bg-[#B91C3C]/5'
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
                 }`}
               >

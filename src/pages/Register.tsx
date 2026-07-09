@@ -119,29 +119,19 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
     } catch (error) {
       console.error('Error during registration:', error);
       toast.error('An error occurred during registration.');
-    }finally {
+    } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="pt-32 pb-20 min-h-screen bg-gray-50 dark:bg-[#0a0a0a] flex items-center justify-center">
-      <div className="max-w-3xl w-full px-4 sm:px-6">
-        <div className="flex justify-center mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 text-red-500 text-sm font-medium border border-red-500/20">
-            <UserPlus className="w-4 h-4" />
-            Join BloodLink
-          </span>
-        </div>
-
+    <div className="pt-20 pb-12 min-h-screen bg-gray-50 dark:bg-[#0a0a0a] flex items-center justify-center">
+      <div className="max-w-5xl w-full px-4 sm:px-6">
         <h2 className="text-4xl font-bold text-gray-900 dark:text-white text-center mb-3">
           Register as Donor
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 text-center mb-10">
-          Fill in your details to become a blood donor.
-        </p>
 
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-4 bg-[#c5304e] text-[#ffffff] p-2 rounded-xl">
           <GoogleLogin
             onSuccess={handleGoogleSuccess}
             onError={() => {
@@ -150,7 +140,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
           />
         </div>
 
-        <div className="relative mb-8">
+        <div className="relative mb-4">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-gray-200 dark:border-white/10"></div>
           </div>
@@ -163,7 +153,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
 
         <div className="bg-white dark:bg-[#111111] border border-gray-200 dark:border-white/5 rounded-2xl p-6 sm:p-8">
           <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
                   Full Name *
@@ -172,7 +162,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   name="fullName"
                   required
                   type="text"
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
                   placeholder="Your full name"
                 />
               </div>
@@ -185,7 +175,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   name="studentId"
                   required
                   type="text"
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
                   placeholder="e.g., 0272320005101116"
                 />
               </div>
@@ -198,7 +188,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   name="department"
                   required
                   type="text"
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
                   placeholder="e.g., CSE"
                 />
               </div>
@@ -211,7 +201,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   name="batch"
                   required
                   type="text"
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
                   placeholder="e.g., 21"
                 />
               </div>
@@ -224,7 +214,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   name="email"
                   required
                   type="email"
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
                   placeholder="you@university.edu"
                 />
               </div>
@@ -237,7 +227,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   name="password"
                   required
                   type="password"
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
                   placeholder="Min 6 characters"
                 />
               </div>
@@ -250,7 +240,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   name="phone"
                   required
                   type="tel"
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
                   placeholder="+880 1XXX-XXXXXX"
                 />
               </div>
@@ -263,7 +253,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   name="bloodGroup"
                   required
                   defaultValue=""
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors appearance-none"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors appearance-none"
                 >
                   <option value="" disabled>
                     Select
@@ -278,19 +268,20 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   <option value="O-">O-</option>
                 </select>
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
+                  Date of Birth *
+                </label>
+                <input
+                  name="dob"
+                  required
+                  type="date"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors [color-scheme:light] dark:[color-scheme:dark]"
+                />
+              </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
-                Date of Birth *
-              </label>
-              <input
-                name="dob"
-                required
-                type="date"
-                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors [color-scheme:dark]"
-              />
-            </div>
+            <div></div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
@@ -305,7 +296,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                       setSelectedDistrict('');
                       setSelectedUpazila('');
                     }}
-                    className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors appearance-none disabled:opacity-50"
+                    className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors appearance-none disabled:opacity-50"
                     disabled={loadingDivisions}
                   >
                     <option value="" disabled>
@@ -336,7 +327,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                       setSelectedDistrict(e.target.value);
                       setSelectedUpazila('');
                     }}
-                    className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors appearance-none disabled:opacity-50"
+                    className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors appearance-none disabled:opacity-50"
                     disabled={!selectedDivision || loadingDistricts}
                   >
                     <option value="" disabled>
@@ -363,7 +354,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                 <select
                   value={selectedUpazila}
                   onChange={e => setSelectedUpazila(e.target.value)}
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors appearance-none disabled:opacity-50"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors appearance-none disabled:opacity-50"
                   disabled={!selectedDistrict}
                 >
                   <option value="" disabled>
@@ -385,7 +376,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
               <input
                 name="address"
                 type="text"
-                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors"
+                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
                 placeholder="House, Road, Area..."
               />
             </div>
@@ -396,7 +387,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
               </label>
               <textarea
                 name="medicalConditions"
-                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-red-500 transition-colors min-h-[100px]"
+                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors min-h-[100px]"
                 placeholder="Please mention any medical conditions, allergies, or medications you are currently taking..."
               ></textarea>
             </div>
@@ -404,7 +395,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-[#e53e3e] hover:bg-[#c53030] disabled:bg-red-400 text-white px-4 py-4 rounded-xl font-bold shadow-lg shadow-red-500/20 transition-all flex items-center justify-center gap-3 mt-8 transform active:scale-[0.98]"
+              className="w-full bg-[#B91C3C] hover:bg-[#c53030] disabled:bg-red-400 text-white px-4 py-4 rounded-xl font-bold shadow-lg shadow-[#B91C3C]/20 transition-all flex items-center justify-center gap-3 mt-8 transform active:scale-[0.98]"
             >
               {isSubmitting ? (
                 <>
@@ -425,7 +416,7 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
           Already have an account?{' '}
           <button
             onClick={() => navigate('/login')}
-            className="text-red-500 hover:text-red-400 font-medium"
+            className="text-[#B91C3C] hover:text-red-400 font-medium"
           >
             Sign in
           </button>

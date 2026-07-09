@@ -108,13 +108,13 @@ export default function FindDonors() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* HEADER */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-sm font-medium mb-6 backdrop-blur">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B91C3C]/10 border border-[#B91C3C]/20 text-[#B91C3C] text-sm font-medium mb-6 backdrop-blur">
             <Search className="w-4 h-4" />
             Find Blood Donors
           </div>
 
           <h1 className="text-4xl md:text-3xl font-bold text-gray-900 dark:text-white  leading-tight">
-            Search for <span className="text-red-500">Donors</span>
+            Search for <span className="text-[#B91C3C]">Donors</span>
           </h1>
 
           <p className="text-gray-600 dark:text-gray-400  max-w-2xl mx-auto">
@@ -132,15 +132,15 @@ export default function FindDonors() {
               }
               className={`group flex items-center gap-2 p-2 rounded-lg border transition-all duration-300 shadow-sm ${
                 bloodGroup === bg
-                  ? 'bg-red-500 text-white border-red-500 shadow-lg shadow-red-500/20 scale-105'
-                  : 'bg-white/70 dark:bg-[#111111]/70 backdrop-blur border-gray-300 dark:border-white/10 hover:border-red-500/40 hover:bg-red-500/5 hover:scale-105'
+                  ? 'bg-[#B91C3C] text-white border-[#B91C3C] shadow-lg shadow-[#B91C3C]/20 scale-105'
+                  : 'bg-white/70 dark:bg-[#111111]/70 backdrop-blur border-gray-300 dark:border-white/10 hover:border-[#B91C3C]/40 hover:bg-[#B91C3C]/5 hover:scale-105'
               }`}
             >
               <Droplet
                 className={`w-4 h-4 transition-colors ${
                   bloodGroup === bg
                     ? 'text-white'
-                    : 'text-red-500 group-hover:text-red-400'
+                    : 'text-[#B91C3C] group-hover:text-red-400'
                 }`}
               />
               {bg}
@@ -151,7 +151,7 @@ export default function FindDonors() {
         {/* FILTER CARD */}
         <div className="bg-white/70 dark:bg-[#111111]/70 backdrop-blur-xl border border-gray-200 dark:border-white/5 rounded-xl p-3 md:p-6 mb-4 shadow-xl">
           <div className="flex items-center gap-2 mb-3">
-            <Filter className="w-5 h-5 text-red-500" />
+            <Filter className="w-5 h-5 text-[#B91C3C]" />
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
               Advanced Filters
             </h2>
@@ -166,7 +166,7 @@ export default function FindDonors() {
               <select
                 value={bloodGroup}
                 onChange={e => setBloodGroup(e.target.value)}
-                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition"
+                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 focus:border-[#B91C3C] focus:ring-2 focus:ring-[#B91C3C]/20 outline-none transition"
               >
                 <option value="All Groups">All Groups</option>
                 {bloodGroups.map(bg => (
@@ -187,7 +187,7 @@ export default function FindDonors() {
                   value={division}
                   onChange={handleDivisionChange}
                   disabled={loadingDivisions}
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition disabled:opacity-50"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 focus:border-[#B91C3C] focus:ring-2 focus:ring-[#B91C3C]/20 outline-none transition disabled:opacity-50"
                 >
                   <option value="All Divisions">
                     {loadingDivisions ? 'Loading...' : 'All Divisions'}
@@ -215,7 +215,7 @@ export default function FindDonors() {
                   value={district}
                   onChange={handleDistrictChange}
                   disabled={division === 'All Divisions' || loadingDistricts}
-                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition disabled:opacity-50"
+                  className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 focus:border-[#B91C3C] focus:ring-2 focus:ring-[#B91C3C]/20 outline-none transition disabled:opacity-50"
                 >
                   <option value="All Districts">
                     {loadingDistricts ? 'Loading...' : 'All Districts'}
@@ -235,14 +235,14 @@ export default function FindDonors() {
 
             {/* Upazila */}
             <div>
-              <label className="text-sm text-gray-500 dark:text-gray-400 mb-2 block">
+              <label className="text-sm text-gray-500 dark:text-gray-400 mb-2  block">
                 Upazila
               </label>
               <select
                 value={upazila}
                 onChange={e => setUpazila(e.target.value)}
                 disabled={district === 'All Districts'}
-                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 mb-2 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition disabled:opacity-50"
+                className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-xl px-4 py-3 mdmb-2 focus:border-[#B91C3C] focus:ring-2 focus:ring-[#B91C3C]/20 outline-none transition disabled:opacity-50"
               >
                 <option value="All Upazilas">All Upazilas</option>
                 {apiUpazilas.map(upz => (
@@ -261,7 +261,7 @@ export default function FindDonors() {
                 setDistrict('All Districts');
                 setUpazila('All Upazilas');
               }}
-              className="w-full h-[48px] rounded-xl bg-red-500 text-white font-medium hover:bg-red-600 transition shadow-lg shadow-red-500/20"
+              className="w-full h-[48px] rounded-xl bg-[#B91C3C] text-white font-medium hover:bg-[#ac1b38] transition shadow-lg shadow-[#B91C3C]/20"
             >
               Clear Filters
             </button>
@@ -272,7 +272,7 @@ export default function FindDonors() {
         <div className="mb-4 text-center">
           <p className="text-gray-600 dark:text-gray-400 text-lg">
             Found{' '}
-            <span className="text-red-500 font-bold">
+            <span className="text-[#B91C3C] font-bold">
               {filteredDonors.length}
             </span>{' '}
             donor{filteredDonors.length !== 1 && 's'}
@@ -306,7 +306,7 @@ export default function FindDonors() {
                 setDistrict('All Districts');
                 setUpazila('All Upazilas');
               }}
-              className="px-6 py-3 rounded-xl bg-red-500 text-white hover:bg-red-600 transition shadow-md"
+              className="px-6 py-3 rounded-xl bg-[#B91C3C] text-white hover:bg-[#B91C3C] transition shadow-md"
             >
               Reset Filters
             </button>

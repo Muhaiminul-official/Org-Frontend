@@ -1,62 +1,41 @@
-import { useState, useEffect } from 'react';
+import { useMemo } from 'react';
+import locationData from '../data/locations.json';
 
-export function useLocationData(selectedDivision: string, selectedDistrict: string) {
-  const [divisions, setDivisions] = useState<{division: string}[]>([]);
-  const [districts, setDistricts] = useState<{district: string, upazilla: string[]}[]>([]);
-  const [upazilas, setUpazilas] = useState<string[]>([]);
+export function useLocationData(
+  selectedDivision: string,
+  selectedDistrict: string,
+) {
+  const divisions = useMemo(
+    () => locationData.map(d => ({ division: d.division })),
+    [],
+  );
 
-  const [loadingDivisions, setLoadingDivisions] = useState(true);
-  const [loadingDistricts, setLoadingDistricts] = useState(false);
+  const districts = useMemo(() => {
+    if (!selectedDivision || selectedDivision === 'All Divisions') return [];
 
-  useEffect(() => {
-    fetch('https://bdapis.com/api/v1.2/divisions')
-      .then(res => res.json())
-      .then(data => {
-        setDivisions(data.data);
-        setLoadingDivisions(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setLoadingDivisions(false);
-      });
-  }, []);
+    const division = locationData.find(d => d.division === selectedDivision);
 
-  useEffect(() => {
-    if (!selectedDivision || selectedDivision === 'All Divisions') {
-      setDistricts([]);
-      return;
-    }
-    setLoadingDistricts(true);
-    fetch(`https://bdapis.com/api/v1.2/division/${selectedDivision.toLowerCase()}`)
-      .then(res => res.json())
-      .then(data => {
-        setDistricts(data.data);
-        setLoadingDistricts(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setLoadingDistricts(false);
-      });
+    if (!division) return [];
+
+    return division.districts.map(d => ({
+      district: d.district,
+      upazilla: d.upazilas,
+    }));
   }, [selectedDivision]);
 
-  useEffect(() => {
-    if (!selectedDistrict || selectedDistrict === 'All Districts') {
-      setUpazilas([]);
-      return;
-    }
-    const districtData = districts.find(d => d.district === selectedDistrict);
-    if (districtData) {
-      setUpazilas(districtData.upazilla);
-    } else {
-      setUpazilas([]);
-    }
-  }, [selectedDistrict, districts]);
+  const upazilas = useMemo(() => {
+    if (!selectedDistrict || selectedDistrict === 'All Districts') return [];
+
+    const district = districts.find(d => d.district === selectedDistrict);
+
+    return district ? district.upazilla : [];
+  }, [districts, selectedDistrict]);
 
   return {
     divisions,
     districts,
     upazilas,
-    loadingDivisions,
-    loadingDistricts
+    loadingDivisions: false,
+    loadingDistricts: false,
   };
 }

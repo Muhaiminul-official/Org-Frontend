@@ -54,12 +54,12 @@ export default function Testimonials() {
         {/* Card */}
         <div className="relative rounded-2xl border border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#161616]/70 backdrop-blur-xl shadow-xl p-6 sm:p-10 overflow-hidden">
           {/* Glow Effects */}
-          <div className="absolute top-0 right-0 w-72 h-72 bg-red-500/10 blur-3xl rounded-full -translate-y-1/2 translate-x-1/3" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-red-500/10 blur-3xl rounded-full translate-y-1/2 -translate-x-1/3" />
+          <div className="absolute top-0 right-0 w-72 h-72 bg-[#B91C3C]/10 blur-3xl rounded-full -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#B91C3C]/10 blur-3xl rounded-full translate-y-1/2 -translate-x-1/3" />
 
           <div className="relative z-10 transition-all duration-500 ease-in-out">
             {/* Quote Icon */}
-            <Quote className="w-10 h-10 text-red-500/20 mb-5" />
+            <Quote className="w-10 h-10 text-[#B91C3C]/20 mb-5" />
 
             {/* Text */}
             <p className="text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-white font-medium leading-relaxed mb-8">
@@ -73,7 +73,7 @@ export default function Testimonials() {
                 <img
                   src={t.image}
                   alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-red-500/20"
+                  className="w-12 h-12 rounded-full object-cover border-2 border-[#B91C3C]/20"
                 />
                 <div>
                   <h4 className="text-gray-900 dark:text-white font-semibold">
@@ -83,7 +83,7 @@ export default function Testimonials() {
                     {t.role}
                   </p>
                 </div>
-                <span className="ml-2 px-2 py-1 bg-red-500/10 text-red-500 text-xs font-bold rounded">
+                <span className="ml-2 px-2 py-1 bg-[#B91C3C]/10 text-[#B91C3C] text-xs font-bold rounded">
                   {t.blood}
                 </span>
               </div>
@@ -106,7 +106,7 @@ export default function Testimonials() {
                         key={i}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
                           i === index
-                            ? 'w-6 bg-red-500'
+                            ? 'w-6 bg-[#B91C3C]'
                             : 'w-1.5 bg-gray-300 dark:bg-gray-600'
                         }`}
                       />

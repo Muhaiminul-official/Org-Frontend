@@ -84,21 +84,21 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
   return (
     <div className="relative min-h-screen bg-white dark:bg-[#050505] flex items-center justify-center p-4 overflow-hidden">
       {/* Dynamic Background Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-red-600/10 blur-[120px] rounded-full animate-pulse" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-red-500/5 blur-[120px] rounded-full" />
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#B91C3C]/10 blur-[120px] rounded-full animate-pulse" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#B91C3C]/5 blur-[120px] rounded-full" />
 
       <div className="max-w-md w-full relative z-10 transition-all duration-500">
         <div className="bg-white/70 dark:bg-[#0a0a0a]/80 backdrop-blur-2xl border border-gray-200 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] rounded-xl p-8 md:p-12">
           {/* Header */}
           <div className="flex flex-col items-center mb-10">
             <div className="relative mb-6">
-              <div className="absolute -inset-4 bg-red-500/20 blur-2xl rounded-full opacity-50"></div>
+              <div className="absolute -inset-4 bg-[#B91C3C]/20 blur-2xl rounded-full opacity-50"></div>
               <div className="relative w-16 h-16 bg-gradient-to-tr from-red-600 to-red-400 rounded-xl flex items-center justify-center shadow-lg transform">
                 <Droplet className="w-8 h-8 text-white" />
               </div>
             </div>
             <h2 className="text-3xl font-black text-gray-900 dark:text-white ">
-              BLOOD<span className="text-red-500">LINK</span>
+              BLOOD<span className="text-[#B91C3C]">LINK</span>
             </h2>
             <p className="mt-2 text-gray-500 dark:text-gray-400 text-sm font-medium">
               Save lives, one drop at a time.
@@ -134,14 +134,14 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
             <div className="space-y-1.5">
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-red-500 transition-colors" />
+                  <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-[#B91C3C] transition-colors" />
                 </div>
                 <input
                   name="email"
                   required
                   disabled={isLoading}
                   type="email"
-                  className="w-full bg-gray-100/50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/5 rounded-2xl pl-12 pr-4 py-4 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-600 disabled:opacity-50"
+                  className="w-full bg-gray-100/50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/5 rounded-2xl pl-12 pr-4 py-4 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/20 focus:border-[#B91C3C] transition-all placeholder:text-gray-400 dark:placeholder:text-gray-600 disabled:opacity-50"
                   placeholder="Email address"
                 />
               </div>
@@ -150,31 +150,31 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
             <div className="space-y-1.5">
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-red-500 transition-colors" />
+                  <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-[#B91C3C] transition-colors" />
                 </div>
                 <input
                   name="password"
                   required
                   disabled={isLoading}
                   type="password"
-                  className="w-full bg-gray-100/50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/5 rounded-2xl pl-12 pr-4 py-4 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-red-500/20 focus:border-red-500 transition-all placeholder:text-gray-400 dark:placeholder:text-gray-600 disabled:opacity-50"
+                  className="w-full bg-gray-100/50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/5 rounded-2xl pl-12 pr-4 py-4 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/20 focus:border-[#B91C3C] transition-all placeholder:text-gray-400 dark:placeholder:text-gray-600 disabled:opacity-50"
                   placeholder="Password"
                 />
               </div>
-              <div className="flex justify-end pr-2">
+              {/* <div className="flex justify-end pr-2">
                 <a
                   href="#"
-                  className="text-xs font-semibold text-red-500 hover:text-red-400 transition-colors"
+                  className="text-xs font-semibold text-[#B91C3C] hover:text-red-400 transition-colors"
                 >
                   Forgot Password?
                 </a>
-              </div>
+              </div> */}
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full relative group overflow-hidden bg-red-600 disabled:bg-red-800 text-white px-4 py-4 rounded-2xl font-bold transition-all shadow-xl shadow-red-500/20 flex items-center justify-center gap-2 active:scale-[0.98] hover:bg-red-500"
+              className="w-full relative group overflow-hidden bg-[#B91C3C] disabled:bg-red-800 text-white px-4 py-4 rounded-2xl font-bold transition-all shadow-xl shadow-[#B91C3C]/20 flex items-center justify-center gap-2 active:scale-[0.98] hover:bg-[#B91C3C]"
             >
               {isLoading ? (
                 <Loader2 className="w-5 h-5 animate-spin" />
@@ -191,7 +191,7 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
             Don't have an account?{' '}
             <button
               onClick={() => navigate('/register')}
-              className="text-gray-900 dark:text-white font-bold hover:text-red-500 transition-colors"
+              className="text-gray-900 dark:text-white font-bold hover:text-[#B91C3C] transition-colors"
             >
               Sign up free
             </button>

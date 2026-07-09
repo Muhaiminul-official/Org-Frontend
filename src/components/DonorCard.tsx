@@ -17,16 +17,16 @@ const DonorCard: React.FC<DonorCardProps> = ({ donor, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="group relative bg-white dark:bg-[#0c0c0c] border border-gray-100 dark:border-white/5 rounded-xl p-4 cursor-pointer hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1.5 transition-all duration-300"
+      className="group relative bg-white dark:bg-[#0c0c0c] border border-gray-100 dark:border-white/5 rounded-xl p-4 cursor-pointer hover:shadow-2xl hover:shadow-[#B91C3C]/10 hover:-translate-y-1.5 transition-all duration-300"
     >
       {/* Top Section: Identity & Blood Group */}
       <div className="flex justify-between items-start mb-6">
         <div className="flex gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gray-50 dark:bg-white/5 flex items-center justify-center text-red-500 border border-gray-100 dark:border-white/10 group-hover:border-red-500/30 transition-colors">
+          <div className="w-12 h-12 rounded-2xl bg-gray-50 dark:bg-white/5 flex items-center justify-center text-[#B91C3C] border border-gray-100 dark:border-white/10 group-hover:border-[#B91C3C]/30 transition-colors">
             <GraduationCap className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight group-hover:text-red-500 transition-colors">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight group-hover:text-[#B91C3C] transition-colors">
               {donor.name}
             </h3>
             <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mt-1 flex items-center gap-1">
@@ -35,8 +35,7 @@ const DonorCard: React.FC<DonorCardProps> = ({ donor, onClick }) => {
           </div>
         </div>
 
-        <div className="bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-500 px-4 py-2 rounded-2xl flex flex-col items-center justify-center min-w-[64px] border border-red-100 dark:border-red-500/20 shadow-sm">
-          
+        <div className="bg-red-50 dark:bg-[#B91C3C]/10 text-red-600 dark:text-[#B91C3C] px-4 py-2 rounded-2xl flex flex-col items-center justify-center min-w-[64px] border border-red-100 dark:border-[#B91C3C]/20 shadow-sm">
           <span className="text-lg font-black leading-none">
             {donor.bloodGroup}
           </span>
@@ -79,7 +78,7 @@ const DonorCard: React.FC<DonorCardProps> = ({ donor, onClick }) => {
             e.stopPropagation();
             window.location.href = `tel:${donor.phone}`;
           }}
-          className="flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-black px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-red-600 dark:hover:bg-red-500 hover:text-white transition-all shadow-lg active:scale-95"
+          className="flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-black px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#B91C3C] dark:hover:bg-[#B91C3C] hover:text-white transition-all shadow-lg active:scale-95"
         >
           Call
           <ArrowUpRight className="w-3.5 h-3.5" />

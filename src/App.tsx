@@ -4,7 +4,13 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -20,6 +26,7 @@ import Profile from './pages/Profile';
 import Admin from './pages/Admin';
 import Footer from './components/Footer';
 import PermissionsPrompt from './components/PermissionsPrompt';
+import ScrollToTop from './ScrollToTop';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,23 +38,22 @@ export default function App() {
 
     try {
       const unsubscribe = setupOnMessageListener((payload: any) => {
-          if(payload?.notification) {
-            import('react-hot-toast').then(({ toast }) => {
-                toast(payload.notification.body, {
-                    icon: '🔔',
-                    duration: 5000
-                });
+        if (payload?.notification) {
+          import('react-hot-toast').then(({ toast }) => {
+            toast(payload.notification.body, {
+              icon: '🔔',
+              duration: 5000,
             });
-          }
+          });
+        }
       });
       return () => {
-         // @ts-ignore
-         if (unsubscribe && typeof unsubscribe === 'function') unsubscribe();
+        // @ts-ignore
+        if (unsubscribe && typeof unsubscribe === 'function') unsubscribe();
       };
-    } catch(e) {
-      console.log('FCM Error: ', e)
+    } catch (e) {
+      console.log('FCM Error: ', e);
     }
-
   }, [isLoggedIn]);
 
   const handleLogin = () => {
@@ -65,10 +71,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-50 dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-900 dark:text-white font-sans selection:bg-red-500/30 pb-16 md:pb-0">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-50 dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-900 dark:text-white font-sans selection:bg-[#B91C3C]/30 pb-16 md:pb-0">
       <Toaster />
       <PermissionsPrompt isLoggedIn={isLoggedIn} />
       <Navbar isLoggedIn={isLoggedIn} onLogout={handleLogout} />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
@@ -79,7 +86,16 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register onLogin={handleLogin} />} />
-        <Route path="/profile" element={isLoggedIn ? <Profile onLogout={handleLogout} /> : <Navigate to="/login" replace />} />
+        <Route
+          path="/profile"
+          element={
+            isLoggedIn ? (
+              <Profile onLogout={handleLogout} />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
+        />
         <Route path="/admin" element={<Admin />} />
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>

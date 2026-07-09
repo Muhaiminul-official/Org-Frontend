@@ -15,8 +15,6 @@ export default function RecentRequests() {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-
-
         const response = await fetch(
           `${import.meta.env.VITE_API_URL}/api/requests`,
         );
@@ -69,7 +67,7 @@ export default function RecentRequests() {
                   {req.priority}
                 </span>
 
-                <span className="flex items-center gap-1 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                <span className="flex items-center gap-1 bg-[#B91C3C] text-white px-3 py-1 rounded-full text-sm font-bold">
                   <Droplet className="w-3 h-3" />
                   {req.bloodGroup}
                 </span>
@@ -116,7 +114,7 @@ export default function RecentRequests() {
               {/* CTA */}
               <a
                 href={`tel:${req.contactNumber}`}
-                className="mt-auto flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white py-3 rounded-xl font-semibold transition"
+                className="mt-auto flex items-center justify-center gap-2 bg-[#B91C3C] hover:bg-[#B91C3C] text-white py-3 rounded-xl font-semibold transition"
               >
                 <Phone className="w-4 h-4" />
                 Contact Now

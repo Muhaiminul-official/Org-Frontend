@@ -28,11 +28,11 @@ import toast from 'react-hot-toast';
 /* ── Blood group color map ─────────────────────────────────────────── */
 const BG_COLORS: Record<string, { pill: string; glow: string }> = {
   'A+': {
-    pill: 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-500/25',
+    pill: 'bg-red-50 dark:bg-[#B91C3C]/10 text-red-600 dark:text-red-400 border-red-200 dark:border-[#B91C3C]/25',
     glow: '#ef4444',
   },
   'A−': {
-    pill: 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-500/25',
+    pill: 'bg-red-50 dark:bg-[#B91C3C]/10 text-red-600 dark:text-red-400 border-red-200 dark:border-[#B91C3C]/25',
     glow: '#ef4444',
   },
   'B+': {
@@ -61,7 +61,7 @@ const BG_COLORS: Record<string, { pill: string; glow: string }> = {
   },
 };
 const fallbackColor = {
-  pill: 'bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-500/25',
+  pill: 'bg-red-50 dark:bg-[#B91C3C]/10 text-red-600 dark:text-red-400 border-red-200 dark:border-[#B91C3C]/25',
   glow: '#ef4444',
 };
 
@@ -369,7 +369,7 @@ const DonorModal: React.FC<DonorModalProps> = ({ donor, onClose }) => {
                     {isEligible && (
                       <button
                         onClick={() => setShowRequestForm(true)}
-                        className="flex-1 flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 active:bg-red-700 text-white py-3 rounded-2xl text-sm font-bold transition-all shadow-md shadow-red-500/20 hover:shadow-red-500/30 hover:-translate-y-0.5"
+                        className="flex-1 flex items-center justify-center gap-2 bg-[#B91C3C] hover:bg-[#B91C3C] active:bg-red-700 text-white py-3 rounded-2xl text-sm font-bold transition-all shadow-md shadow-[#B91C3C]/20 hover:shadow-[#B91C3C]/30 hover:-translate-y-0.5"
                       >
                         <Send className="w-4 h-4" />
                         Request Blood
@@ -418,8 +418,8 @@ const DonorModal: React.FC<DonorModalProps> = ({ donor, onClose }) => {
 
                   {/* Form header */}
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-xl bg-red-50 dark:bg-red-500/10 flex items-center justify-center">
-                      <Heart className="w-4 h-4 text-red-500" />
+                    <div className="w-9 h-9 rounded-xl bg-red-50 dark:bg-[#B91C3C]/10 flex items-center justify-center">
+                      <Heart className="w-4 h-4 text-[#B91C3C]" />
                     </div>
                     <h3 className="text-lg font-black text-gray-900 dark:text-white">
                       Request Blood
@@ -441,7 +441,7 @@ const DonorModal: React.FC<DonorModalProps> = ({ donor, onClose }) => {
                         onChange={e => setContactInfo(e.target.value)}
                         placeholder="e.g. 017XXXXXXXX at Dhaka Medical"
                         required
-                        className="w-full bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-red-400 dark:focus:border-red-500 transition-colors"
+                        className="w-full bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-red-400 dark:focus:border-[#B91C3C] transition-colors"
                       />
                     </Field>
 
@@ -451,7 +451,7 @@ const DonorModal: React.FC<DonorModalProps> = ({ donor, onClose }) => {
                         value={message}
                         onChange={e => setMessage(e.target.value)}
                         placeholder="We urgently need blood by tomorrow…"
-                        className="w-full bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-red-400 dark:focus:border-red-500 transition-colors resize-none"
+                        className="w-full bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.08] rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:border-red-400 dark:focus:border-[#B91C3C] transition-colors resize-none"
                       />
                     </Field>
 
@@ -466,7 +466,7 @@ const DonorModal: React.FC<DonorModalProps> = ({ donor, onClose }) => {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex-1 py-3 rounded-2xl text-sm font-bold bg-red-500 hover:bg-red-600 active:bg-red-700 text-white flex items-center justify-center gap-2 transition-all shadow-md shadow-red-500/20 disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="flex-1 py-3 rounded-2xl text-sm font-bold bg-[#B91C3C] hover:bg-[#B91C3C] active:bg-red-700 text-white flex items-center justify-center gap-2 transition-all shadow-md shadow-[#B91C3C]/20 disabled:opacity-60 disabled:cursor-not-allowed"
                       >
                         {isSubmitting ? (
                           <>

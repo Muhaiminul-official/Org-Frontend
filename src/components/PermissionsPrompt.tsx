@@ -3,16 +3,13 @@ import { MapPin, Bell, X, ShieldCheck, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { subscribeToPush } from '../utils/push';
 
-
 export default function PermissionsPrompt({
   isLoggedIn,
 }: {
   isLoggedIn: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(false);
-const [loading, setLoading] = useState(false);
-
-  
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Only show if not previously prompted
@@ -31,17 +28,17 @@ const [loading, setLoading] = useState(false);
 
   const handleAllow = async () => {
     try {
-       setLoading(true);
+      setLoading(true);
       // 1. Request Location First
-      if ('geolocation' in navigator) {
-        await new Promise(resolve => {
-          navigator.geolocation.getCurrentPosition(
-            pos => resolve(pos),
-            err => resolve(err),
-            { enableHighAccuracy: true },
-          );
-        });
-      }
+      // if ('geolocation' in navigator) {
+      //   await new Promise(resolve => {
+      //     navigator.geolocation.getCurrentPosition(
+      //       pos => resolve(pos),
+      //       err => resolve(err),
+      //       { enableHighAccuracy: true },
+      //     );
+      //   });
+      // }
 
       // 2. Request Notifications
       if ('Notification' in window) {
@@ -63,7 +60,6 @@ const [loading, setLoading] = useState(false);
       setLoading(true);
       localStorage.setItem('permissions_prompted', 'true');
       setIsOpen(false);
-       
     }
   };
 
@@ -99,8 +95,8 @@ const [loading, setLoading] = useState(false);
 
             <div className="flex justify-center mb-6">
               <div className="relative">
-                <div className="absolute inset-0 bg-red-500/20 blur-xl rounded-full" />
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg relative z-10 border border-red-500/20">
+                <div className="absolute inset-0 bg-[#B91C3C]/20 blur-xl rounded-full" />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#B91C3C] to-red-600 rounded-2xl flex items-center justify-center shadow-lg relative z-10 border border-[#B91C3C]/20">
                   <ShieldCheck className="w-8 h-8 text-white" />
                 </div>
               </div>
@@ -150,7 +146,7 @@ const [loading, setLoading] = useState(false);
               <button
                 onClick={handleAllow}
                 disabled={loading}
-                className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg shadow-red-500/20 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-60"
+                className="w-full bg-[#B91C3C] hover:bg-[#B91C3C] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg shadow-[#B91C3C]/20 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-60"
               >
                 {loading ? (
                   <>

@@ -32,8 +32,8 @@ export default function Compatibility() {
         <div className="bg-white/80 dark:bg-[#111]/80 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl shadow-xl overflow-hidden">
           {/* Title Bar */}
           <div className="p-5 sm:p-6 border-b border-gray-200 dark:border-white/10 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500/20 to-red-500/10 flex items-center justify-center">
-              <Droplet className="w-5 h-5 text-red-500" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#B91C3C]/20 to-[#B91C3C]/10 flex items-center justify-center">
+              <Droplet className="w-5 h-5 text-[#B91C3C]" />
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
@@ -70,7 +70,7 @@ export default function Compatibility() {
                     key={donorType}
                     className="border-b border-gray-200 dark:border-white/5 hover:bg-black/[0.02] dark:hover:bg-white/[0.02] transition"
                   >
-                    <td className="px-6 py-4 font-bold text-red-500">
+                    <td className="px-6 py-4 font-bold text-[#B91C3C]">
                       {donorType}
                     </td>
 
@@ -84,7 +84,7 @@ export default function Compatibility() {
                             className={`w-7 h-7 flex items-center justify-center rounded-full transition
                             ${
                               isCompatible
-                                ? 'bg-red-500/20 text-red-500 shadow-sm'
+                                ? 'bg-[#B91C3C]/20 text-[#B91C3C] shadow-sm'
                                 : 'bg-gray-200/60 dark:bg-white/5 text-gray-500'
                             }
                           `}
@@ -112,7 +112,7 @@ export default function Compatibility() {
                 className="border border-gray-200 dark:border-white/10 rounded-xl p-4 bg-white dark:bg-[#0f0f0f] shadow-sm"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="font-bold text-red-500 text-lg">
+                  <span className="font-bold text-[#B91C3C] text-lg">
                     {donorType}
                   </span>
                   <span className="text-xs text-gray-500">Donates to</span>
@@ -129,7 +129,7 @@ export default function Compatibility() {
                         className={`flex items-center justify-center text-xs py-2 rounded-lg font-medium transition
                           ${
                             isCompatible
-                              ? 'bg-red-500/15 text-red-500'
+                              ? 'bg-[#B91C3C]/15 text-[#B91C3C]'
                               : 'bg-gray-100 dark:bg-white/5 text-gray-400'
                           }
                         `}

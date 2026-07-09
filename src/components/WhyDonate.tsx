@@ -66,12 +66,12 @@ export default function WhyDonate() {
                 className={`relative p-8 rounded-3xl border backdrop-blur-lg transition-all duration-300 group hover:-translate-y-2 hover:shadow-xl
                   ${
                     reason.highlight
-                      ? 'bg-red-500 text-white border-red-500'
+                      ? 'bg-[#B91C3C] text-white border-[#B91C3C]'
                       : 'bg-white/70 dark:bg-white/5 border-gray-200 dark:border-white/10'
                   }`}
               >
                 {/* Glow Effect */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-red-500/10 to-pink-500/10 blur-xl"></div>
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-[#B91C3C]/10 to-pink-500/10 blur-xl"></div>
 
                 {/* Icon */}
                 <div
@@ -79,12 +79,12 @@ export default function WhyDonate() {
                   ${
                     reason.highlight
                       ? 'bg-white/20'
-                      : 'bg-red-100 dark:bg-red-500/10'
+                      : 'bg-red-100 dark:bg-[#B91C3C]/10'
                   }`}
                 >
                   <Icon
                     className={`w-7 h-7 ${
-                      reason.highlight ? 'text-white' : 'text-red-500'
+                      reason.highlight ? 'text-white' : 'text-[#B91C3C]'
                     }`}
                   />
                 </div>

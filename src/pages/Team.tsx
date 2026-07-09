@@ -7,7 +7,7 @@ function Avatar({ member }: { member: any }) {
 
   return (
     <div className="relative mb-6">
-      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-red-500/20 shadow-md group-hover:scale-105 transition">
+      <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-[#B91C3C]/20 shadow-md group-hover:scale-105 transition">
         {!imgError && member.image ? (
           <img
             src={member.image}
@@ -17,14 +17,14 @@ function Avatar({ member }: { member: any }) {
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-[#1a1a1a]">
-            <User className="w-10 h-10 text-red-500/60" />
+            <User className="w-10 h-10 text-[#B91C3C]/60" />
           </div>
         )}
       </div>
 
       {/* ROLE ICON */}
       <div className="absolute bottom-0 right-[30%] translate-x-1/2 w-8 h-8 bg-white dark:bg-[#111111] rounded-full flex items-center justify-center border border-gray-200 dark:border-white/10 shadow">
-        <member.icon className="w-4 h-4 text-red-500" />
+        <member.icon className="w-4 h-4 text-[#B91C3C]" />
       </div>
     </div>
   );
@@ -35,27 +35,17 @@ export default function Team() {
   const team = [
     {
       name: 'Muhaiminul Islam',
-      role: 'Admin & Founder',
+      role: 'Developer & Technical Lead',
       bloodGroup: 'O+',
       id: '0272320005101116',
-      email: 'admin@bloodlink.com',
+      email: 'muhaiminul@bloodlink.com',
       phone: '01245775244',
       icon: Crown,
-      image: '/Muhaiminul.png', 
-    },
-    {
-      name: 'Rashedur Rahman',
-      role: 'Moderator',
-      bloodGroup: 'A+',
-      id: '0272320005101035',
-      email: 'rashedur@bloodlink.edu',
-      phone: '01245775142',
-      icon: Shield,
-      image: '/Rashedur.png',
+      image: '/Muhaiminul.png',
     },
     {
       name: 'Sarowar Hossain',
-      role: 'Moderator',
+      role: 'Requirement Analyst',
       bloodGroup: 'B+',
       id: '0272320005101135',
       email: 'sarowar@bloodlink.com',
@@ -65,13 +55,23 @@ export default function Team() {
     },
     {
       name: 'Nizam Uddin',
-      role: 'Moderator',
+      role: 'Technical Documentation Writter',
       bloodGroup: 'AB+',
       id: '0272320005101139',
       email: 'nizam@bloodlink.com',
       phone: '01245676841',
       icon: Shield,
       image: '/Nizam.jpg',
+    },
+    {
+      name: 'Rashedur Rahman',
+      role: 'Presentation Lead',
+      bloodGroup: 'A+',
+      id: '0272320005101035',
+      email: 'rashedur@bloodlink.edu',
+      phone: '01245775142',
+      icon: Shield,
+      image: '/Rashedur.png',
     },
   ];
 
@@ -81,7 +81,7 @@ export default function Team() {
         {/* HEADER */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Our <span className="text-red-500">Team</span>
+            Our <span className="text-[#B91C3C]">Team</span>
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Meet the people behind BloodLink who make this platform possible.
@@ -93,9 +93,9 @@ export default function Team() {
           {team.map((member, index) => (
             <div
               key={index}
-              className="relative group rounded-3xl p-[1px] bg-gradient-to-b from-red-500/30 to-transparent hover:from-red-500/60 transition-all duration-500"
+              className="relative group rounded-3xl p-[1px] bg-gradient-to-b from-[#B91C3C]/30 to-transparent hover:from-[#B91C3C]/60 transition-all duration-500"
             >
-              <div className="bg-white/80 dark:bg-[#111111]/80 backdrop-blur-xl rounded-3xl p-8 text-center h-full border border-gray-200 dark:border-white/5 group-hover:shadow-2xl group-hover:shadow-red-500/10 transition-all duration-500">
+              <div className="bg-white/80 dark:bg-[#111111]/80 backdrop-blur-xl rounded-3xl p-8 text-center h-full border border-gray-200 dark:border-white/5 group-hover:shadow-2xl group-hover:shadow-[#B91C3C]/10 transition-all duration-500">
                 {/* AVATAR */}
                 <Avatar member={member} />
 
@@ -105,24 +105,24 @@ export default function Team() {
                 </h3>
 
                 {/* ROLE */}
-                <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-red-500/10 text-red-500 border border-red-500/20 mb-4">
+                <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-[#B91C3C]/10 text-[#B91C3C] border border-[#B91C3C]/20 mb-4">
                   {member.role}
                 </span>
 
                 {/* BLOOD GROUP */}
                 <div className="flex items-center justify-center gap-1 text-gray-500 dark:text-gray-400 text-sm mb-6">
-                  <Droplet className="w-3 h-3 text-red-500" />
+                  <Droplet className="w-3 h-3 text-[#B91C3C]" />
                   {member.bloodGroup}
                 </div>
 
                 {/* CONTACT */}
                 <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-                  <div className="flex items-center justify-center gap-2 hover:text-red-500 transition">
+                  <div className="flex items-center justify-center gap-2 hover:text-[#B91C3C] transition">
                     <Mail className="w-4 h-4" />
                     <span className="truncate">{member.email}</span>
                   </div>
 
-                  <div className="flex items-center justify-center gap-2 hover:text-red-500 transition">
+                  <div className="flex items-center justify-center gap-2 hover:text-[#B91C3C] transition">
                     <Phone className="w-4 h-4" />
                     {member.phone}
                   </div>
