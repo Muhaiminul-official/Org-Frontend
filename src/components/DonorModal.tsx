@@ -133,14 +133,24 @@ const DonorModal: React.FC<DonorModalProps> = ({ donor, onClose }) => {
   const color = BG_COLORS[donor.bloodGroup] ?? fallbackColor;
   const isAvail = donor.status === 'Available';
 
-  const isEligible = React.useMemo(() => {
-    if (!isAvail) return false;
-    if (!donor.lastDonation || donor.lastDonation === 'Never') return true;
-    const last = new Date(donor.lastDonation);
-    if (isNaN(last.getTime())) return true;
-    return Math.ceil(Math.abs(Date.now() - last.getTime()) / 86400000) >= 90;
-  }, [donor.lastDonation, isAvail]);
+const isEligible = React.useMemo(() => {
+  if (!isAvail) return { status: false, daysLeft: 0, showDays: false };
+  if (!donor.lastDonation || donor.lastDonation === 'Never')
+    return { status: true, daysLeft: 0, showDays: false };
 
+  const last = new Date(donor.lastDonation);
+  if (isNaN(last.getTime()))
+    return { status: true, daysLeft: 0, showDays: false };
+
+  const diffDays = Math.floor((Date.now() - last.getTime()) / 86400000);
+
+  if (diffDays >= 90) {
+    return { status: true, daysLeft: 0, showDays: false };
+  } else {
+    return { status: false, daysLeft: 90 - diffDays, showDays: true };
+  }
+}, [donor.lastDonation, isAvail]);
+  
   const formatDate = (d: string) => {
     if (!d || d === 'Never') return d || 'Not specified';
     try {
@@ -283,9 +293,10 @@ const DonorModal: React.FC<DonorModalProps> = ({ donor, onClose }) => {
                       <span
                         className={`w-1.5 h-1.5 rounded-full ${isAvail ? 'bg-emerald-500' : 'bg-gray-400'}`}
                       />
+                      ok kk
                       {isAvail ? 'Available' : 'Unavailable'}
                     </span>
-                    <span
+                    {/* <span
                       className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold ${
                         isEligible
                           ? 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/20 text-emerald-600 dark:text-emerald-400'
@@ -294,6 +305,18 @@ const DonorModal: React.FC<DonorModalProps> = ({ donor, onClose }) => {
                     >
                       <CheckCircle2 className="w-3 h-3" />
                       {isEligible ? 'Eligible to Donate' : 'Not Yet Eligible'}
+                    </span> */}
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold ${
+                        isEligible.status
+                          ? 'bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/20 text-emerald-600 dark:text-emerald-400'
+                          : 'bg-orange-50 dark:bg-orange-500/10 border-orange-200 dark:border-orange-500/20 text-orange-600 dark:text-orange-400'
+                      }`}
+                    >
+                      <CheckCircle2 className="w-3 h-3" />
+                      {isEligible.status
+                        ? 'Eligible to Donate'
+                        : `Not Yet Eligible ${isEligible.showDays ? `(${isEligible.daysLeft} days left)` : ''}`}
                     </span>
                   </div>
 

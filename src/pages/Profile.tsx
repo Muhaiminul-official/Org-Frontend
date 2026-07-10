@@ -433,7 +433,26 @@ export default function Profile({ onLogout }: { onLogout?: () => void }) {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays >= 90;
   };
+const getEligibilityStatus = () => {
+  if (!userData.lastDonation || userData.lastDonation === 'Never') {
+    return { eligible: true, daysLeft: 0 };
+  }
 
+  const lastDate = new Date(userData.lastDonation);
+  if (isNaN(lastDate.getTime())) {
+    return { eligible: true, daysLeft: 0 };
+  }
+
+  const today = new Date();
+  const diffTime = today.getTime() - lastDate.getTime();
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  if (diffDays >= 90) {
+    return { eligible: true, daysLeft: 0 };
+  } else {
+    return { eligible: false, daysLeft: 90 - diffDays };
+  }
+};
   // ─────────────────────────────────────────────────────────────────
   // EDIT MODE
   // ─────────────────────────────────────────────────────────────────
@@ -587,7 +606,7 @@ export default function Profile({ onLogout }: { onLogout?: () => void }) {
                     name="dob"
                     type="date"
                     defaultValue={userData.dob || ''}
-                    className="w-full bg-[#FAF6F3] dark:bg-[#171112] border border-[#EDE3DD] dark:border-white/10 rounded-xl px-4 py-3 text-[#241A18] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/30 focus:border-[#B91C3C] transition-colors [color-scheme:dark]"
+                    className="w-full bg-[#FAF6F3] dark:bg-[#171112] border border-[#EDE3DD] dark:border-white/10 rounded-xl px-4 py-3 text-[#241A18] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/30 focus:border-[#B91C3C] transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                     required
                   />
                 </div>
@@ -600,7 +619,7 @@ export default function Profile({ onLogout }: { onLogout?: () => void }) {
                     name="lastDonation"
                     type="date"
                     defaultValue={getLocalDateString(userData.lastDonation)}
-                    className="w-full bg-[#FAF6F3] dark:bg-[#171112] border border-[#EDE3DD] dark:border-white/10 rounded-xl px-4 py-3 text-[#241A18] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/30 focus:border-[#B91C3C] transition-colors [color-scheme:dark]"
+                    className="w-full bg-[#FAF6F3] dark:bg-[#171112] border border-[#EDE3DD] dark:border-white/10 rounded-xl px-4 py-3 text-[#241A18] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/30 focus:border-[#B91C3C] transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                   />
                 </div>
               </div>
@@ -947,9 +966,26 @@ export default function Profile({ onLogout }: { onLogout?: () => void }) {
                 <div
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-full border ${isEligible() ? 'bg-[#1F7A4D]/10 border-[#1F7A4D]/20 text-[#1F7A4D]' : 'bg-[#B5862B]/10 border-[#B5862B]/20 text-[#B5862B]'}`}
                 >
-                  <span className="text-sm font-semibold">
+                  {/* <span className="text-sm font-semibold">
                     {isEligible() ? 'Eligible to donate' : 'Not eligible yet'}
-                  </span>
+                  </span> */}
+                  {(() => {
+                    const { eligible, daysLeft } = getEligibilityStatus();
+                    return (
+                      <div className="flex flex-col">
+                        <span className="text font-semibold">
+                          {eligible
+                            ? 'Eligible to donate'
+                            : `Not eligible yet.  (${daysLeft} days remaining)`}
+                        </span>
+                        {/* {!eligible && (
+                          <span className="text-xs text-red-500 mt-0.5">
+                            ({daysLeft} days remaining)
+                          </span>
+                        )} */}
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
 

@@ -622,11 +622,17 @@ export default function RequestBlood() {
                       }`}
                     >
                       <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2 text-[#B91C3C] text-xs font-bold tracking-wider uppercase">
-                          <AlertCircle className="w-4 h-4" />
-                          {req.priority === 'High'
-                            ? 'Urgent Request'
-                            : 'Blood Request'}
+                        <div
+                          className={`flex items-center gap-2 text-[#B91C3C] text-xs font-bold tracking-wider  px-3 py-1 rounded-full ${
+                    req.priority === 'High'
+                      ? 'bg-red-100 text-red-600'
+                      : 'bg-yellow-100 text-yellow-600'}`
+                  }
+                        >
+                          <AlertCircle className="w-4 h-4"/>
+                          
+                          Priority : {req.priority}
+                          
                         </div>
                         <div className="flex items-center gap-1 bg-[#B91C3C]/10 text-[#B91C3C] px-3 py-1 rounded-full font-bold text-sm">
                           <Droplet className="w-3 h-3" />

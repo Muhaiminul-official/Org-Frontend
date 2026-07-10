@@ -1,7 +1,4 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
+
 
 import { useState, useEffect } from 'react';
 import {
@@ -29,7 +26,9 @@ import PermissionsPrompt from './components/PermissionsPrompt';
 import ScrollToTop from './ScrollToTop';
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
+    return localStorage.getItem('isLoggedIn') === 'true';
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
