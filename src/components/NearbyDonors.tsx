@@ -155,7 +155,7 @@ export default function NearbyDonors() {
         }
       },
       error => {
-        console.log('ERROR', error);
+        // console.log('ERROR', error);
         setLocationError(
           error.code === 1
             ? 'Location access denied. Please enable GPS.'
