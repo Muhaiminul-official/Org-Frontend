@@ -45,7 +45,7 @@ export default function NearbyDonors() {
         );
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           let currentUserId: string | null = null;
           try {
             const userStr = localStorage.getItem('user');
