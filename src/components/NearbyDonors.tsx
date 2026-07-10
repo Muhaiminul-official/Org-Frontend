@@ -68,13 +68,11 @@ export default function NearbyDonors() {
       }
     };
     fetchDonors();
-    
   }, []);
 
   const detectLocation = () => {
-
-    console.log('Detect called');
-    console.count('detectLocation');
+    // console.log('Detect called');
+    // console.count('detectLocation');
     setLoadingLocation(true);
     setLocationError(null);
     setLocationName(null);
@@ -86,18 +84,17 @@ export default function NearbyDonors() {
     }
 
     navigator.geolocation.getCurrentPosition(
-    
       async position => {
-        setLocationError(null); 
-        console.log('SUCCESS');
+        setLocationError(null);
+        // console.log('SUCCESS');
         try {
           const { latitude, longitude } = position.coords;
           const response = await fetch(
             `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=1`,
           );
-          console.log(response.status);
+          // console.log(response.status);
           const data = await response.json();
-console.log(data)
+          // console.log(data)
           if (data?.address) {
             const subDist =
               data.address.county ||
@@ -142,8 +139,9 @@ console.log(data)
                   // term.includes(donorDistrict) ||
                   // donorDivision.includes(term) ||
                   // term.includes(donorDivision) ||
-                  donorUpazila.includes(term) ||
-                  term.includes(donorUpazila),
+                  // donorUpazila.includes(term) ||
+                  // term.includes(donorUpazila),
+                  donorUpazila.includes(term) || term.includes(donorUpazila),
               );
             });
             setNearbyDonors(filtered);
@@ -170,18 +168,18 @@ console.log(data)
   };
 
   // Trigger location detection once donors are loaded
- useEffect(() => {
-   if (allDonors.length && !hasDetected.current) {
-     hasDetected.current = true;
-     detectLocation();
-   }
- }, [allDonors]);
+  useEffect(() => {
+    if (allDonors.length && !hasDetected.current) {
+      hasDetected.current = true;
+      detectLocation();
+    }
+  }, [allDonors]);
 
   return (
     <section className="py-15 bg-[#fff3f3] dark:bg-[#181313] relative overflow-hidden">
       {/* Decorative background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
-        <div className="absolute top-[-10%] left-[10%] w-72 h-72 bg-[#B91C3C]/5 rounded-full blur-[100px]" />
+        <div className="absolute top-[-10%] left-[10%] w-72 h-72 bg-[#B91C3C]/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -247,12 +245,14 @@ console.log(data)
 
         {/* Results Area */}
         <div className="min-h-[400px]">
-          {loadingLocation ? (
+          {/* 💡 ফিক্স: লোডিং ট্রিপ হওয়ার একদম শুরুতে বা লোকেশন ডিটেক্ট করার সময় লোডিং ইফেক্ট দেখাবে */}
+          {loadingLocation ||
+          (!locationName && nearbyDonors.length === 0 && !locationError) ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map(i => (
                 <div
                   key={i}
-                  className="h-64 rounded-3xl bg-gray-100 dark:bg-white/5 animate-pulse border border-gray-200 dark:border-white/10"
+                  className="h-64 rounded-3xl bg-gray-200/60 dark:bg-white/5 animate-pulse border border-gray-200 dark:border-white/10"
                 />
               ))}
             </div>

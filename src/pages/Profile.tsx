@@ -566,8 +566,37 @@ const getEligibilityStatus = () => {
                     type="tel"
                     defaultValue={userData.phone || ''}
                     className="w-full bg-[#FAF6F3] dark:bg-[#171112] border border-[#EDE3DD] dark:border-white/10 rounded-xl px-4 py-3 text-[#241A18] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/30 focus:border-[#B91C3C] transition-colors"
-                    placeholder="+880 1XXX-XXXXXX"
+                    placeholder="01XXXXXXXXX"
                     required
+                    
+                    pattern="^01[3-9]\d{8}$"
+                    title="Please enter a valid 11-digit Bangladeshi phone number starting with 01"
+                    onChange={e => {
+                      let value = e.target.value;
+
+                      
+                      value = value.replace(/[^0-9]/g, '');
+
+                      
+                      if (value.length > 11) {
+                        value = value.slice(0, 11);
+                      }
+
+                      e.target.value = value;
+                    }}
+                    onBlur={e => {
+                      const bdPhoneRegex = /^01[3-9]\d{8}$/;
+                      
+                      if (
+                        e.target.value &&
+                        !bdPhoneRegex.test(e.target.value)
+                      ) {
+                        alert(
+                          'Please enter a valid 11-digit Bangladeshi phone number starting with 01',
+                        );
+                        e.target.value = ''; 
+                      }
+                    }}
                   />
                 </div>
 
@@ -606,6 +635,34 @@ const getEligibilityStatus = () => {
                     name="dob"
                     type="date"
                     defaultValue={userData.dob || ''}
+                    max={
+                      new Date(
+                        new Date().setFullYear(new Date().getFullYear() - 18),
+                      )
+                        .toISOString()
+                        .split('T')[0]
+                    }
+                    onChange={e => {
+                      const selectedDate = new Date(e.target.value);
+                      const today = new Date();
+
+                      let age =
+                        today.getFullYear() - selectedDate.getFullYear();
+                      const monthDiff =
+                        today.getMonth() - selectedDate.getMonth();
+                      if (
+                        monthDiff < 0 ||
+                        (monthDiff === 0 &&
+                          today.getDate() < selectedDate.getDate())
+                      ) {
+                        age--;
+                      }
+
+                      if (age < 18) {
+                        alert('You must be at least 18 years old to register!');
+                        e.target.value = '';
+                      }
+                    }}
                     className="w-full bg-[#FAF6F3] dark:bg-[#171112] border border-[#EDE3DD] dark:border-white/10 rounded-xl px-4 py-3 text-[#241A18] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/30 focus:border-[#B91C3C] transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                     required
                   />
@@ -619,6 +676,15 @@ const getEligibilityStatus = () => {
                     name="lastDonation"
                     type="date"
                     defaultValue={getLocalDateString(userData.lastDonation)}
+                    max={new Date().toISOString().split('T')[0]}
+                    onChange={e => {
+                      const selectedDate = e.target.value;
+                      const today = new Date().toISOString().split('T')[0];
+                      if (selectedDate > today) {
+                        alert('Future date is not allowed!');
+                        e.target.value = today;
+                      }
+                    }}
                     className="w-full bg-[#FAF6F3] dark:bg-[#171112] border border-[#EDE3DD] dark:border-white/10 rounded-xl px-4 py-3 text-[#241A18] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#B91C3C]/30 focus:border-[#B91C3C] transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                   />
                 </div>

@@ -293,7 +293,7 @@ const isEligible = React.useMemo(() => {
                       <span
                         className={`w-1.5 h-1.5 rounded-full ${isAvail ? 'bg-emerald-500' : 'bg-gray-400'}`}
                       />
-                      ok kk
+                      
                       {isAvail ? 'Available' : 'Unavailable'}
                     </span>
                     {/* <span
