@@ -377,7 +377,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
               <Shield className="w-7 h-7 text-[#B91C3C]" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+              <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400">
                 {greeting}, Admin
               </h1>
               <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
@@ -1000,13 +1000,13 @@ function UsersTab({
                   </td>
                   <td className="py-4 px-4 text-right">
                     <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button
+                      {/* <button
                         onClick={() => onToggleRole(user.id)}
                         className="p-2 text-purple-400 hover:bg-purple-500/10 rounded-lg transition-colors"
                         title="Toggle Role"
                       >
                         <Shield className="w-4 h-4" />
-                      </button>
+                      </button> */}
                       <button
                         onClick={() => onToggleUserStatus(user.id)}
                         className="p-2 text-green-400 hover:bg-green-500/10 rounded-lg transition-colors"
@@ -1014,12 +1014,12 @@ function UsersTab({
                       >
                         <ToggleRight className="w-4 h-4" />
                       </button>
-                      <button
+                      {/* <button
                         className="p-2 text-blue-400 hover:bg-blue-500/10 rounded-lg transition-colors"
                         title="Edit User"
                       >
                         <Edit className="w-4 h-4" />
-                      </button>
+                      </button> */}
                       <button
                         onClick={() => onDelete(user.id)}
                         className="p-2 text-red-400 hover:bg-[#B91C3C]/10 rounded-lg transition-colors"

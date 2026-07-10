@@ -313,7 +313,7 @@ const isEligible = React.useMemo(() => {
                           : 'bg-orange-50 dark:bg-orange-500/10 border-orange-200 dark:border-orange-500/20 text-orange-600 dark:text-orange-400'
                       }`}
                     >
-                      <CheckCircle2 className="w-3 h-3" />
+                      <CheckCircle2 className="w-3 h-3 " />
                       {isEligible.status
                         ? 'Eligible to Donate'
                         : `Not Yet Eligible ${isEligible.showDays ? `(${isEligible.daysLeft} days left)` : ''}`}

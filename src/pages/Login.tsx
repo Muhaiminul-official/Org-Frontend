@@ -52,7 +52,7 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL || ''}/api/auth/login`,
+        `${import.meta.env.VITE_API_URL}/api/auth/login`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -93,7 +93,7 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
           <div className="flex flex-col items-center mb-10">
             <div className="relative mb-6">
               <div className="absolute -inset-4 bg-[#B91C3C]/20 blur-2xl rounded-full opacity-50"></div>
-              <div className="relative w-16 h-16 bg-gradient-to-tr from-red-600 to-red-400 rounded-xl flex items-center justify-center shadow-lg transform">
+              <div className="relative w-16 h-16 bg-gradient-to-tr from-red-600 to-[#B91C3C] rounded-2xl flex items-center justify-center shadow-lg transform">
                 <Droplet className="w-8 h-8 text-white" />
               </div>
             </div>

@@ -543,12 +543,43 @@ export default function RequestBlood() {
                   <input
                     type="tel"
                     value={contactNumber}
-                    onChange={e => setContactNumber(e.target.value)}
-                    placeholder="+880 1XXX-XXXXXX"
+                    required
+                    placeholder="01XXXXXXXXX"
                     className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
+                    // Form validation on submit
+                    pattern="^01[3-9]\d{8}$"
+                    title="Please enter a valid 11-digit Bangladeshi phone number starting with 01"
+                    // Disallow non-numeric characters and limit length to 11 digits while typing
+                    onChange={e => {
+                      let value = e.target.value;
+
+                      // Remove all non-numeric characters
+                      value = value.replace(/[^0-9]/g, '');
+
+                      // Prevent typing more than 11 digits
+                      if (value.length > 11) {
+                        value = value.slice(0, 11);
+                      }
+
+                      // Update your existing state
+                      setContactNumber(value);
+                    }}
+                    // Validation alert when user clicks outside the input field
+                    onBlur={e => {
+                      const bdPhoneRegex = /^01[3-9]\d{8}$/;
+                      if (
+                        e.target.value &&
+                        !bdPhoneRegex.test(e.target.value)
+                      ) {
+                        alert(
+                          'Invalid phone number! It must be an 11-digit number starting with 01.',
+                        );
+                        setContactNumber(''); // Clears the state if invalid
+                      }
+                    }}
                   />
                 </div>
-                <div>
+                {/* <div>
                   <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
                     Required Date *
                   </label>
@@ -557,6 +588,37 @@ export default function RequestBlood() {
                     value={requiredDate}
                     onChange={e => setRequiredDate(e.target.value)}
                     className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-600 dark:text-gray-400 focus:outline-none focus:border-[#B91C3C] transition-colors"
+                  />
+                </div> */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                    Required Date *
+                  </label>
+                  <input
+                    type="date"
+                    value={requiredDate}
+                    required
+                    className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-600 dark:text-gray-400 focus:outline-none focus:border-[#B91C3C] transition-colors [color-scheme:light] dark:[color-scheme:dark]"
+                    min={new Date().toISOString().split('T')[0]}
+                    onChange={e => {
+                      const selectedDate = e.target.value;
+                      const today = new Date().toISOString().split('T')[0];
+
+                      if (selectedDate && selectedDate < today) {
+                        alert(
+                          'Invalid date! Required date cannot be in the past.',
+                        );
+                        setRequiredDate('');
+                        {
+                          /* Clears the state if invalid */
+                        }
+                      } else {
+                        setRequiredDate(selectedDate);
+                        {
+                          /* Updates your existing state */
+                        }
+                      }
+                    }}
                   />
                 </div>
               </div>
@@ -624,15 +686,13 @@ export default function RequestBlood() {
                       <div className="flex items-center justify-between mb-4">
                         <div
                           className={`flex items-center gap-2 text-[#B91C3C] text-xs font-bold tracking-wider  px-3 py-1 rounded-full ${
-                    req.priority === 'High'
-                      ? 'bg-red-100 text-red-600'
-                      : 'bg-yellow-100 text-yellow-600'}`
-                  }
+                            req.priority === 'High'
+                              ? 'bg-red-100 text-red-600'
+                              : 'bg-yellow-100 text-yellow-600'
+                          }`}
                         >
-                          <AlertCircle className="w-4 h-4"/>
-                          
+                          <AlertCircle className="w-4 h-4" />
                           Priority : {req.priority}
-                          
                         </div>
                         <div className="flex items-center gap-1 bg-[#B91C3C]/10 text-[#B91C3C] px-3 py-1 rounded-full font-bold text-sm">
                           <Droplet className="w-3 h-3" />
