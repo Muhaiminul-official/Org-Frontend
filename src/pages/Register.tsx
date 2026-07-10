@@ -67,26 +67,29 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
     data.upazila = selectedUpazila;
 
     try {
-      const response = await fetch('/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/register`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.fullName,
+            email: data.email,
+            password: data.password,
+            studentId: data.studentId,
+            department: data.department,
+            batch: data.batch,
+            dob: data.dob,
+            bloodGroup: data.bloodGroup,
+            phone: data.phone,
+            division: data.division,
+            district: data.district,
+            upazila: data.upazila,
+          }),
         },
-        body: JSON.stringify({
-          name: data.fullName,
-          email: data.email,
-          password: data.password,
-          studentId: data.studentId,
-          department: data.department,
-          batch: data.batch,
-          dob: data.dob,
-          bloodGroup: data.bloodGroup,
-          phone: data.phone,
-          division: data.division,
-          district: data.district,
-          upazila: data.upazila,
-        }),
-      });
+      );
 
       if (response.ok) {
         const responseData = await response.json();

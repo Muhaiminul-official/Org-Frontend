@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
       VitePWA({
         registerType: 'prompt',
         devOptions: {
-          enabled: true,
+          enabled: false,
           type: 'module',
         },
         manifest: {
