@@ -241,7 +241,34 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   required
                   type="tel"
                   className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors"
-                  placeholder="+880 1XXX-XXXXXX"
+                  placeholder="01XXXXXXXXX"
+                  // Form validation on submit
+                  pattern="^01[3-9]\d{8}$"
+                  title="Please enter a valid 11-digit Bangladeshi phone number starting with 01"
+                  // Disallow non-numeric characters and limit length to 11 digits while typing
+                  onChange={e => {
+                    let value = e.target.value;
+
+                    // Remove all non-numeric characters (spaces, dashes, plus signs, etc.)
+                    value = value.replace(/[^0-9]/g, '');
+
+                    // Prevent typing more than 11 digits
+                    if (value.length > 11) {
+                      value = value.slice(0, 11);
+                    }
+
+                    e.target.value = value;
+                  }}
+                  // Validation alert on blur (when clicking outside the input)
+                  onBlur={e => {
+                    const bdPhoneRegex = /^01[3-9]\d{8}$/;
+                    if (e.target.value && !bdPhoneRegex.test(e.target.value)) {
+                      alert(
+                        'Invalid phone number! It must be an 11-digit number starting with 01.',
+                      );
+                      e.target.value = ''; // Clears the input field if invalid
+                    }
+                  }}
                 />
               </div>
 
@@ -277,6 +304,37 @@ export default function Register({ onLogin }: { onLogin: () => void }) {
                   required
                   type="date"
                   className="w-full bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-white/10 rounded-lg px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-[#B91C3C] transition-colors [color-scheme:light] dark:[color-scheme:dark]"
+                  // Disables selecting any date younger than 18 years ago in the calendar picker
+                  max={
+                    new Date(
+                      new Date().setFullYear(new Date().getFullYear() - 18),
+                    )
+                      .toISOString()
+                      .split('T')[0]
+                  }
+                  // Strict typing validation for keyboard inputs
+                  onChange={e => {
+                    const selectedDate = new Date(e.target.value);
+                    const today = new Date();
+
+                    // Calculate age
+                    let age = today.getFullYear() - selectedDate.getFullYear();
+                    const monthDiff =
+                      today.getMonth() - selectedDate.getMonth();
+                    if (
+                      monthDiff < 0 ||
+                      (monthDiff === 0 &&
+                        today.getDate() < selectedDate.getDate())
+                    ) {
+                      age--;
+                    }
+
+                    // Restrict if age is less than 18
+                    if (age < 18) {
+                      alert('You must be at least 18 years old to register!');
+                      e.target.value = ''; // Clears the input field
+                    }
+                  }}
                 />
               </div>
             </div>

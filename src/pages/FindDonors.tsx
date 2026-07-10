@@ -24,6 +24,7 @@ export default function FindDonors() {
         );
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           let currentUserId = null;
           try {
             const userStr = localStorage.getItem('user');
@@ -113,11 +114,11 @@ export default function FindDonors() {
             Find Blood Donors
           </div>
 
-          <h1 className="text-4xl md:text-3xl font-bold text-gray-900 dark:text-white  leading-tight">
+          <h1 className="text-4xl md:text-3xl font-bold text-gray-900 dark:text-white leading-tight">
             Search for <span className="text-[#B91C3C]">Donors</span>
           </h1>
 
-          <p className="text-gray-600 dark:text-gray-400  max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Easily find verified blood donors based on group and location.
           </p>
         </div>
@@ -235,7 +236,7 @@ export default function FindDonors() {
 
             {/* Upazila */}
             <div>
-              <label className="text-sm text-gray-500 dark:text-gray-400 mb-2  block">
+              <label className="text-sm text-gray-500 dark:text-gray-400 mb-2 block">
                 Upazila
               </label>
               <select
@@ -271,16 +272,31 @@ export default function FindDonors() {
         {/* RESULT COUNT */}
         <div className="mb-4 text-center">
           <p className="text-gray-600 dark:text-gray-400 text-lg">
-            Found{' '}
-            <span className="text-[#B91C3C] font-bold">
-              {filteredDonors.length}
-            </span>{' '}
-            donor{filteredDonors.length !== 1 && 's'}
+            {loading ? (
+              <span className="inline-block w-24 h-5 bg-gray-200 dark:bg-white/10 animate-pulse rounded" />
+            ) : (
+              <>
+                Found{' '}
+                <span className="text-[#B91C3C] font-bold">
+                  {filteredDonors.length}
+                </span>{' '}
+                donor{filteredDonors.length !== 1 && 's'}
+              </>
+            )}
           </p>
         </div>
 
-        {/* DONOR GRID */}
-        {filteredDonors.length > 0 ? (
+        {/* DONOR GRID / LOADING SKELETON */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3, 4, 5, 6].map(i => (
+              <div
+                key={i}
+                className="h-64 rounded-3xl bg-gray-200/60 dark:bg-white/5 animate-pulse border border-gray-200 dark:border-white/10"
+              />
+            ))}
+          </div>
+        ) : filteredDonors.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredDonors.map(donor => (
               <DonorCard
@@ -306,7 +322,7 @@ export default function FindDonors() {
                 setDistrict('All Districts');
                 setUpazila('All Upazilas');
               }}
-              className="px-6 py-3 rounded-xl bg-[#B91C3C] text-white hover:bg-[#B91C3C] transition shadow-md"
+              className="px-6 py-3 rounded-xl bg-[#B91C3C] text-white hover:bg-[#ac1b38] transition shadow-md"
             >
               Reset Filters
             </button>

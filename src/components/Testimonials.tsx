@@ -5,24 +5,27 @@ export default function Testimonials() {
   const testimonials = [
     {
       name: 'Nusrat Jahan',
-      role: 'Pharmacy Student, Recipient',
+      role: 'Pharmacy Student, Dhaka University',
       blood: 'AB+',
-      text: 'When my brother needed AB+ blood urgently, we found 3 donors nearby through BloodLink. Forever grateful to this community!',
-      image: 'https://i.pravatar.cc/100?img=5',
+      text: 'When my brother needed AB+ blood urgently at Dhaka Medical College Hospital, we found 3 active donors nearby through BloodLink. Forever grateful to this community!',
+      image:
+        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200',
     },
     {
-      name: 'Rahim Ahmed',
-      role: 'Engineer, Donor',
+      name: 'Asif Rahman',
+      role: 'Software Engineer, Motijheel',
       blood: 'O+',
-      text: 'I’ve donated blood 5 times using BloodLink. It’s amazing how fast you can connect with people in need.',
-      image: 'https://i.pravatar.cc/100?img=12',
+      text: 'I have donated blood 5 times using BloodLink. It is absolutely amazing how fast you can connect with people in severe medical emergencies around Dhaka.',
+      image:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200',
     },
     {
       name: 'Sadia Karim',
-      role: 'Teacher, Recipient',
+      role: 'High School Teacher, Chittagong',
       blood: 'A-',
-      text: 'The platform helped us during an emergency at midnight. Found a donor within 20 minutes!',
-      image: 'https://i.pravatar.cc/100?img=9',
+      text: 'The platform helped our family during a critical emergency at midnight. We managed to find an available donor within just 20 minutes!',
+      image:
+        'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&q=80&w=200&h=200',
     },
   ];
 
@@ -90,13 +93,13 @@ export default function Testimonials() {
 
               {/* Controls */}
               <div className="flex items-center gap-4 justify-between sm:justify-end">
-                {/* Buttons */}
+                {/* Buttons and Indicators */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={prev}
                     className="w-10 h-10 rounded-full bg-gray-200 dark:bg-[#222] hover:bg-gray-300 dark:hover:bg-[#333] flex items-center justify-center transition"
                   >
-                    <ChevronLeft className="w-5 h-5" />
+                    <ChevronLeft className="w-5 h-5 animate-none text-gray-700 dark:text-gray-300" />
                   </button>
 
                   {/* Indicators */}
@@ -117,7 +120,7 @@ export default function Testimonials() {
                     onClick={next}
                     className="w-10 h-10 rounded-full bg-gray-200 dark:bg-[#222] hover:bg-gray-300 dark:hover:bg-[#333] flex items-center justify-center transition"
                   >
-                    <ChevronRight className="w-5 h-5" />
+                    <ChevronRight className="w-5 h-5 animate-none text-gray-700 dark:text-gray-300" />
                   </button>
                 </div>
               </div>
