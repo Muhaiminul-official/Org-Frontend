@@ -1164,7 +1164,7 @@ function RequestsTab({
               <th className="pb-4 font-medium px-4">Priority</th>
               <th className="pb-4 font-medium px-4">Needed By</th>
               <th className="pb-4 font-medium px-4">Status</th>
-              <th className="pb-4 font-medium px-4 text-right">Actions</th>
+              <th className="pb-4 font-medium px-4 text-right">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5">
@@ -1250,13 +1250,13 @@ function RequestsTab({
                       >
                         <ToggleRight className="w-4 h-4" />
                       </button>
-                      <button
+                      {/* <button
                         onClick={() => onDelete(req.id)}
                         className="p-2 text-red-400 hover:bg-[#B91C3C]/10 rounded-lg transition-colors"
                         title="Delete Request"
                       >
                         <Trash2 className="w-4 h-4" />
-                      </button>
+                      </button> */}
                     </div>
                   </td>
                 </tr>
