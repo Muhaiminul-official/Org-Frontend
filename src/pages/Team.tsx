@@ -59,7 +59,7 @@ export default function Team() {
       bloodGroup: 'AB+',
       id: '0272320005101139',
       email: 'nizam@bloodlink.com',
-      phone: '01853696782',
+      phone: '01882177722',
       icon: Shield,
       image: '/Nizam.jpg',
     },
